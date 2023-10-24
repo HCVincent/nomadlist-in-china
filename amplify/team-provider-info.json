@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nomadlistinchina-dev-104859-authRole",
+      "UnauthRoleArn": "arn:aws:iam::186705978014:role/amplify-nomadlistinchina-dev-104859-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::186705978014:role/amplify-nomadlistinchina-dev-104859-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nomadlistinchina-dev-104859-deployment",
+      "UnauthRoleName": "amplify-nomadlistinchina-dev-104859-unauthRole",
+      "StackName": "amplify-nomadlistinchina-dev-104859",
+      "StackId": "arn:aws:cloudformation:us-east-1:186705978014:stack/amplify-nomadlistinchina-dev-104859/e4601360-7217-11ee-9720-0e48508753ab",
+      "AmplifyAppId": "d1s3fs7jcs9tnq"
+    },
+    "categories": {
+      "auth": {
+        "nomadlistinchinabf145393": {}
+      }
+    }
+  }
+}
