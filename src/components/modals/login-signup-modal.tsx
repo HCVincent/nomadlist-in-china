@@ -17,13 +17,13 @@ import { DialogContent } from "../ui/dialog";
 
 export const LoginOrSignupModal: React.FC = ({}) => {
   const dispatch = useDispatch();
-  const { user, toSignIn, toSignUp } = useAuthenticator();
+  const { route } = useAuthenticator();
 
   useEffect(() => {
-    if (user) {
+    if (route === "authenticated") {
       dispatch(closeModal());
     }
-  }, [user, dispatch]);
+  }, [route, dispatch]);
   return (
     <DialogContent className="p-0 overflow-hidden">
       <Authenticator
