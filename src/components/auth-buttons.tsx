@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Auth } from "aws-amplify";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Button } from "./ui/button";
-import { showSignupModal } from "@/redux/modal-slice";
+import { closeModal, showSignupModal } from "@/redux/modal-slice";
 type AuthButtonProps = {};
 
 const AuthButton: React.FC<AuthButtonProps> = () => {
@@ -14,6 +14,7 @@ const AuthButton: React.FC<AuthButtonProps> = () => {
   const handleLogout = async () => {
     try {
       await Auth.signOut();
+      dispatch(closeModal());
     } catch (error) {
       console.error("Error signing out: ", error);
     }

@@ -1,11 +1,14 @@
 "use client";
 
+import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import useAuthUtils from "@/hooks/useAuthUtils";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
-export default function AdminLogin() {
+import { Amplify } from "aws-amplify";
+import awsExports from "@/aws-exports";
+Amplify.configure({ ...awsExports, ssr: true });
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const { checkUserGroup } = useAuthUtils();
   const [isAdmin, setIsAdmin] = useState(false);
   const { user } = useAuthenticator((context) => [context.user]);
@@ -23,8 +26,19 @@ export default function AdminLogin() {
     adminAuth();
   }, [user, checkUserGroup, router]);
   return (
-    <div className="flex justify-center items-center">
-      {isAdmin ? <></> : <>loading</>}
+    <div className="h-full flex items-center justify-center">
+      {isAdmin ? (
+        <>
+          <div className="h-full  w-36">
+            <NavigationSidebar />
+          </div>
+          <div className="flex flex-1 h-full">{children}</div>
+        </>
+      ) : (
+        <>loading</>
+      )}
     </div>
   );
-}
+};
+
+export default DashboardLayout;
