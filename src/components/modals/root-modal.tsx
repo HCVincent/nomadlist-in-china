@@ -3,6 +3,7 @@ import { closeModal } from "@/redux/modal-slice";
 import { RootState } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginOrSignupModal } from "./login-signup-modal";
+import { AddCityModal } from "./add-city";
 
 export const RootModal: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const RootModal: React.FC = () => {
   return (
     <Dialog open={isModalOpen} onOpenChange={() => dispatch(closeModal())}>
       {activeModal === "signup" && <LoginOrSignupModal />}
+      {activeModal === "addcity" && <AddCityModal />}
     </Dialog>
   );
 };

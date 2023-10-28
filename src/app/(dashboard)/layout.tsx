@@ -5,9 +5,7 @@ import useAuthUtils from "@/hooks/useAuthUtils";
 import { useAuthenticator } from "@aws-amplify/ui-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Amplify } from "aws-amplify";
-import awsExports from "@/aws-exports";
-Amplify.configure({ ...awsExports, ssr: true });
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const { checkUserGroup } = useAuthUtils();
   const [isAdmin, setIsAdmin] = useState(false);

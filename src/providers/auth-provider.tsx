@@ -1,11 +1,12 @@
 "use client";
-import awsExports from "@/aws-exports";
-import { Amplify } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import React from "react";
 import "@aws-amplify/ui-react/styles.css";
 
-Amplify.configure({ ...awsExports, ssr: true });
+import { Amplify } from "aws-amplify";
+import awsExports from "@/aws-exports";
+Amplify.configure({ ...awsExports });
+
 type AuthProviderProps = {
   children: React.ReactNode;
 };

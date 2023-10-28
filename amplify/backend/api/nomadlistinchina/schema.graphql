@@ -12,3 +12,9 @@ type User @model {
   id: ID!
   email: String!
 }
+
+type City @model {
+  id: ID!
+  name: String!
+  imageUrl: String!
+}

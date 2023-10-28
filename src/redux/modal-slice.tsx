@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 type ModalState = {
   isModalOpen: boolean;
-  activeModal: "login" | "signup" | "emailcode";
+  activeModal: "login" | "signup" | "emailcode" | "addcity";
 };
 
 const initialState: ModalState = {
@@ -28,6 +28,10 @@ const modalSlice = createSlice({
       state.isModalOpen = true;
       state.activeModal = "emailcode";
     },
+    showAddCityModal: (state) => {
+      state.isModalOpen = true;
+      state.activeModal = "addcity";
+    },
     closeModal: (state) => {
       state.isModalOpen = false;
     },
@@ -39,5 +43,6 @@ export const {
   showSignupModal,
   closeModal,
   showEmailCodeModal,
+  showAddCityModal,
 } = modalSlice.actions;
 export default modalSlice.reducer;

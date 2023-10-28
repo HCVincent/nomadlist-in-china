@@ -57,6 +57,8 @@ export const listUsers = /* GraphQL */ `query ListUsers(
     items {
       id
       email
+      createdAt
+      updatedAt
       __typename
     }
     nextToken
@@ -64,3 +66,51 @@ export const listUsers = /* GraphQL */ `query ListUsers(
   }
 }
 ` as GeneratedQuery<APITypes.ListUsersQueryVariables, APITypes.ListUsersQuery>;
+export const getCity = /* GraphQL */ `query GetCity($id: ID!) {
+  getCity(id: $id) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetCityQueryVariables, APITypes.GetCityQuery>;
+export const listCities = /* GraphQL */ `query ListCities(
+  $filter: ModelCityFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      imageUrl
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListCitiesQueryVariables,
+  APITypes.ListCitiesQuery
+>;
+
+export const getCityByName = /* GraphQL */ `
+query GetCityByName($name: String!) {
+  listCities(filter: {name: {eq: $name}}) {
+    items {
+      id
+      name
+      imageUrl
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+}
+` as GeneratedQuery<APITypes.GetCityByNameQueryVariables, APITypes.GetCityByNameQuery>;

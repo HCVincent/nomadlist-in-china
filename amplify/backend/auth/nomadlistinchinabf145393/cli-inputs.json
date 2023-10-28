@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "nomadlistinchinabf145393_identitypool_bf145393",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "nomadlbf145393",
     "userPoolName": "nomadlistinchinabf145393_userpool_bf145393",
     "autoVerifiedAttributes": [

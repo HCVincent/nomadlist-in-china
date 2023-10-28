@@ -104,6 +104,39 @@ export type DeleteUserInput = {
   id: string,
 };
 
+export type CreateCityInput = {
+  id?: string | null,
+  name: string,
+  imageUrl: string,
+};
+
+export type ModelCityConditionInput = {
+  name?: ModelStringInput | null,
+  imageUrl?: ModelStringInput | null,
+  and?: Array< ModelCityConditionInput | null > | null,
+  or?: Array< ModelCityConditionInput | null > | null,
+  not?: ModelCityConditionInput | null,
+};
+
+export type City = {
+  __typename: "City",
+  id: string,
+  name: string,
+  imageUrl: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateCityInput = {
+  id: string,
+  name?: string | null,
+  imageUrl?: string | null,
+};
+
+export type DeleteCityInput = {
+  id: string,
+};
+
 export type ModelTodoFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
@@ -146,6 +179,21 @@ export type ModelUserFilterInput = {
 export type ModelUserConnection = {
   __typename: "ModelUserConnection",
   items:  Array<User | null >,
+  nextToken?: string | null,
+};
+
+export type ModelCityFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  imageUrl?: ModelStringInput | null,
+  and?: Array< ModelCityFilterInput | null > | null,
+  or?: Array< ModelCityFilterInput | null > | null,
+  not?: ModelCityFilterInput | null,
+};
+
+export type ModelCityConnection = {
+  __typename: "ModelCityConnection",
+  items:  Array<City | null >,
   nextToken?: string | null,
 };
 
@@ -192,6 +240,14 @@ export type ModelSubscriptionUserFilterInput = {
   email?: ModelSubscriptionStringInput | null,
   and?: Array< ModelSubscriptionUserFilterInput | null > | null,
   or?: Array< ModelSubscriptionUserFilterInput | null > | null,
+};
+
+export type ModelSubscriptionCityFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  name?: ModelSubscriptionStringInput | null,
+  imageUrl?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionCityFilterInput | null > | null,
+  or?: Array< ModelSubscriptionCityFilterInput | null > | null,
 };
 
 export type CreateTodoMutationVariables = {
@@ -287,6 +343,54 @@ export type DeleteUserMutation = {
   } | null,
 };
 
+export type CreateCityMutationVariables = {
+  input: CreateCityInput,
+  condition?: ModelCityConditionInput | null,
+};
+
+export type CreateCityMutation = {
+  createCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateCityMutationVariables = {
+  input: UpdateCityInput,
+  condition?: ModelCityConditionInput | null,
+};
+
+export type UpdateCityMutation = {
+  updateCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteCityMutationVariables = {
+  input: DeleteCityInput,
+  condition?: ModelCityConditionInput | null,
+};
+
+export type DeleteCityMutation = {
+  deleteCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetTodoQueryVariables = {
   id: string,
 };
@@ -354,6 +458,60 @@ export type ListUsersQuery = {
       updatedAt: string,
     } | null >,
     nextToken?: string | null,
+  } | null,
+};
+
+export type GetCityQueryVariables = {
+  id: string,
+};
+
+export type GetCityQuery = {
+  getCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListCitiesQueryVariables = {
+  filter?: ModelCityFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCitiesQuery = {
+  listCities?:  {
+    __typename: "ModelCityConnection",
+    items:  Array< {
+      __typename: "City",
+      id: string,
+      name: string,
+      imageUrl: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetCityByNameQueryVariables = {
+  name: string,
+};
+
+export type GetCityByNameQuery = {
+  listCities?:  {
+    __typename: "ModelCityConnection",
+    items:  Array< {
+      __typename: "City",
+      id: string,
+      name: string,
+      imageUrl: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
   } | null,
 };
 
@@ -439,6 +597,51 @@ export type OnDeleteUserSubscription = {
     __typename: "User",
     id: string,
     email: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateCitySubscriptionVariables = {
+  filter?: ModelSubscriptionCityFilterInput | null,
+};
+
+export type OnCreateCitySubscription = {
+  onCreateCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateCitySubscriptionVariables = {
+  filter?: ModelSubscriptionCityFilterInput | null,
+};
+
+export type OnUpdateCitySubscription = {
+  onUpdateCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteCitySubscriptionVariables = {
+  filter?: ModelSubscriptionCityFilterInput | null,
+};
+
+export type OnDeleteCitySubscription = {
+  onDeleteCity?:  {
+    __typename: "City",
+    id: string,
+    name: string,
+    imageUrl: string,
     createdAt: string,
     updatedAt: string,
   } | null,

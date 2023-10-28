@@ -5,41 +5,19 @@ import { NextResponse } from "next/server";
 import { API, graphqlOperation } from "aws-amplify";
 import { listUsers } from "@/graphql/queries";
 import { GraphQLResult } from "@aws-amplify/api";
-
-interface User {
-  id: string;
-  email: string;
-}
-
-interface ListUsersData {
-  listUsers: {
-    items: User[];
-  };
-}
+import axios from "axios";
 
 export default function UsersPage() {
   useEffect(() => {
     const getUsers = async () => {
-      let usersData: GraphQLResult<ListUsersData> | undefined;
       try {
-        usersData = (await API.graphql(
-          graphqlOperation(listUsers)
-        )) as GraphQLResult<ListUsersData>;
-        console.log(usersData);
+        const result = await axios.get("/api/users");
       } catch (error) {
-        console.log("Error fetching users:", error);
-      }
-      if (usersData?.data?.listUsers) {
-        return new NextResponse(
-          JSON.stringify(usersData.data.listUsers.items),
-          { status: 200 }
-        );
-      } else {
-        return new NextResponse("Failed to fetch users", { status: 500 });
+        console.log(error);
       }
     };
+
     const users = getUsers();
-    console.log("users", users);
   }, []);
   return (
     <div className="border-blue-300 border-2 w-full h-full">

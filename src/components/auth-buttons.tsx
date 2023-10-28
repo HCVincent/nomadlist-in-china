@@ -9,7 +9,7 @@ import { closeModal, showSignupModal } from "@/redux/modal-slice";
 type AuthButtonProps = {};
 
 const AuthButton: React.FC<AuthButtonProps> = () => {
-  const { user } = useAuthenticator((context) => [context.user]);
+  const { user } = useAuthenticator();
   const dispatch = useDispatch();
   const handleLogout = async () => {
     try {

@@ -89,3 +89,45 @@ export const onDeleteUser = /* GraphQL */ `subscription OnDeleteUser($filter: Mo
   APITypes.OnDeleteUserSubscriptionVariables,
   APITypes.OnDeleteUserSubscription
 >;
+export const onCreateCity = /* GraphQL */ `subscription OnCreateCity($filter: ModelSubscriptionCityFilterInput) {
+  onCreateCity(filter: $filter) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateCitySubscriptionVariables,
+  APITypes.OnCreateCitySubscription
+>;
+export const onUpdateCity = /* GraphQL */ `subscription OnUpdateCity($filter: ModelSubscriptionCityFilterInput) {
+  onUpdateCity(filter: $filter) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateCitySubscriptionVariables,
+  APITypes.OnUpdateCitySubscription
+>;
+export const onDeleteCity = /* GraphQL */ `subscription OnDeleteCity($filter: ModelSubscriptionCityFilterInput) {
+  onDeleteCity(filter: $filter) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteCitySubscriptionVariables,
+  APITypes.OnDeleteCitySubscription
+>;

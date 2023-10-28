@@ -107,3 +107,54 @@ export const deleteUser = /* GraphQL */ `mutation DeleteUser(
   APITypes.DeleteUserMutationVariables,
   APITypes.DeleteUserMutation
 >;
+export const createCity = /* GraphQL */ `mutation CreateCity(
+  $input: CreateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  createCity(input: $input, condition: $condition) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateCityMutationVariables,
+  APITypes.CreateCityMutation
+>;
+export const updateCity = /* GraphQL */ `mutation UpdateCity(
+  $input: UpdateCityInput!
+  $condition: ModelCityConditionInput
+) {
+  updateCity(input: $input, condition: $condition) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateCityMutationVariables,
+  APITypes.UpdateCityMutation
+>;
+export const deleteCity = /* GraphQL */ `mutation DeleteCity(
+  $input: DeleteCityInput!
+  $condition: ModelCityConditionInput
+) {
+  deleteCity(input: $input, condition: $condition) {
+    id
+    name
+    imageUrl
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteCityMutationVariables,
+  APITypes.DeleteCityMutation
+>;

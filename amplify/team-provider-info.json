@@ -17,6 +17,9 @@
       },
       "api": {
         "nomadlistinchina": {}
+      },
+      "storage": {
+        "cities": {}
       }
     }
   }

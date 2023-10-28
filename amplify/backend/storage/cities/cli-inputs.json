@@ -1,0 +1,16 @@
+{
+  "resourceName": "cities",
+  "policyUUID": "2b260dc7",
+  "bucketName": "nomadlistinchina5755bfdd257b451a949b40e7fb09619",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
